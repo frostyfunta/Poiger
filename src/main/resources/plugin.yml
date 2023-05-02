@@ -1,0 +1,4 @@
+name: PoishiisPP
+version: '${project.version}'
+main: poishiispp.poishiispp.PoishiisPP
+api-version: 1.19
