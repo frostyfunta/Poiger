@@ -4,24 +4,30 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import poishiispp.poishiispp.PoishiisPP;
+import poishiispp.poishiispp.handlers.oneHitKO;
+
 
 
 public class ohkoToggle implements CommandExecutor {
-    private PoishiisPP plugin;
 
-    public ohkoToggle(PoishiisPP plugin){
-        this.plugin = plugin;
+    private final oneHitKO listener;
+
+    public ohkoToggle(oneHitKO listener){
+        this.listener = listener;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-        if (args.length == 0){
-            return false;
-        }
-        String action = args[0].toLowerCase();
+            if(listener.isEnabled()){
+                listener.disable();
+                sender.sendMessage("OHKO has been disabled");
+                return true;
+            } else{
 
-        if(action.equals("on")){
-            plugin.get
-        }
+                listener.enable();
+                sender.sendMessage("OHKO has been enabled");
+                return true;
+            }
+
     }
 }

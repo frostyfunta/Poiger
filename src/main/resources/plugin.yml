@@ -2,3 +2,10 @@ name: PoishiisPP
 version: '${project.version}'
 main: poishiispp.poishiispp.PoishiisPP
 api-version: 1.19
+commands:
+  toggleohko:
+    description: toggles one hit KO.
+    usage: /toggleohko
+    aliases: ohko
+    permission: toggleohko
+    permission-message: You do not have permission.
