@@ -2,18 +2,24 @@ package poishiispp.poishiispp;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import poishiispp.poishiispp.commands.ohkoToggle;
-import poishiispp.poishiispp.handlers.oneHitKO;
+import poishiispp.poishiispp.commands.EverythingKillsToggle;
+import poishiispp.poishiispp.commands.OhkoToggle;
+import poishiispp.poishiispp.handlers.EverythingKills;
+import poishiispp.poishiispp.handlers.OneHitKO;
 
 public final class PoishiisPP extends JavaPlugin {
-    private oneHitKO ohko;
+    private OneHitKO ohko;
+    private EverythingKills everythingKills;
 
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("hello World");
-        ohko = new oneHitKO(this);
-       // Bukkit.getPluginManager().registerEvents(ohko, this);
-       // getCommand("toggleohko").setExecutor(new ohkoToggle(ohko));
+        ohko = new OneHitKO(this);
+        everythingKills = new EverythingKills(this);
+
+
+        getCommand("toggleohko").setExecutor(new OhkoToggle(ohko));
+        getCommand("everythingKills").setExecutor(new EverythingKillsToggle(everythingKills));
 
     }
 

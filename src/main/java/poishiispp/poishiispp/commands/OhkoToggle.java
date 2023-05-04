@@ -1,18 +1,18 @@
 package poishiispp.poishiispp.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import poishiispp.poishiispp.PoishiisPP;
-import poishiispp.poishiispp.handlers.oneHitKO;
+import poishiispp.poishiispp.handlers.OneHitKO;
 
 
 
-public class ohkoToggle implements CommandExecutor {
+public class OhkoToggle implements CommandExecutor {
 
-    private final oneHitKO listener;
+    private final OneHitKO listener;
 
-    public ohkoToggle(oneHitKO listener){
+    public OhkoToggle(OneHitKO listener){
         this.listener = listener;
     }
 
@@ -20,12 +20,12 @@ public class ohkoToggle implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
             if(listener.isEnabled()){
                 listener.disable();
-                sender.sendMessage("OHKO has been disabled");
+                Bukkit.getLogger().info("OHKO has been disabled");
                 return true;
             } else{
 
                 listener.enable();
-                sender.sendMessage("OHKO has been enabled");
+                Bukkit.getLogger().info("OHKO has been enabled");
                 return true;
             }
 

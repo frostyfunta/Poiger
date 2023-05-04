@@ -4,8 +4,11 @@ main: poishiispp.poishiispp.PoishiisPP
 api-version: 1.19
 commands:
   toggleohko:
-    description: toggles one hit KO.
+    description: Entities onehit you.
     usage: /toggleohko
     aliases: ohko
-    permission: toggleohko
-    permission-message: You do not have permission.
+    default: true
+  everythingKills:
+    description: EVERYTHING onehits you.
+    usage: /everythingkills
+    default: true
